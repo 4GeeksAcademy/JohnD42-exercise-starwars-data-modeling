@@ -57,7 +57,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     user_name = Column(String(250), primary_key=True)
-    email = Column(String(250), nullable=False)
+    email = Column(String(250), primary_key=True)
     password = Column(String(250), nullable=False)
 
 class Favorite(Base):
