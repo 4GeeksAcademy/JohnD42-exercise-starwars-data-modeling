@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
 from eralchemy2 import render_er
@@ -76,8 +76,8 @@ class Favorite(Base):
 class Post(Base):
     __tablename__ = 'Post'
     id = Column(Integer, primary_key=True)
-    created_at = Column(String(250), nullable=False)
-    modified_at = Column(String(250), nullable=True)
+    created_at = Column(DateTime, nullable=False)
+    modified_at = Column(DateTime, nullable=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
     title = Column(String(250), nullable=False)
@@ -90,7 +90,7 @@ class Comment(Base):
     post_id = Column(Integer, ForeignKey('post.id'))
     comment = Column(String(1600), nullable=False )
     user_id = Column(Integer, ForeignKey('user.id'))
-    created_at = Column(String(250), nullable=False)
+    created_at = Column(DateTime, nullable=False)
     post = relationship(Post)
     user = relationship(User)
     
