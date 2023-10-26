@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, Float
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
 from eralchemy2 import render_er
@@ -12,9 +12,9 @@ class Planet(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), primary_key=True)
-    diameter = Column(Integer, nullable=True)
-    rotation_period = Column(Integer, nullable=True)
-    gravity = Column(String(250), nullable=True)
+    diameter = Column(Float, nullable=True)
+    rotation_period = Column(Float, nullable=True)
+    gravity = Column(Float, nullable=True)
     climate = Column(String(250), nullable=True)
     terrain = Column(String(250), nullable=True)
     surface_water = Column(String(250), nullable=True)
@@ -42,11 +42,11 @@ class Vehicle(Base):
     vehicle_class = Column(String(250), nullable=True)
     manufacturer = Column(String(250), nullable=True)
     cost_in_credits = Column(Integer, nullable=True)
-    length = Column(String(250), nullable=True)
+    length = Column(Float, nullable=True)
     crew = Column(Integer, nullable=True)
     passengers = Column(Integer, nullable=True)
-    max_atmosphering_speed = Column(String(250), nullable=True)
-    cargo_capacity = Column(String(250), nullable=True)
+    max_atmosphering_speed = Column(Float, nullable=True)
+    cargo_capacity = Column(Float, nullable=True)
     consumables = Column(String(250), nullable=True)
     films = Column(String(250), nullable=True)
     pilots = Column(String(250), nullable=True)
