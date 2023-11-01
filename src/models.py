@@ -18,6 +18,7 @@ class Planet(Base):
     climate = Column(String(250), nullable=True)
     terrain = Column(String(250), nullable=True)
     surface_water = Column(String(250), nullable=True)
+    url = Column(String(250), nullable=False)
     
 
 class Character(Base):
@@ -30,8 +31,9 @@ class Character(Base):
     hair_color = Column(String(16), nullable=True)
     eye_color = Column(String(16), nullable=True)
     sex = Column(String(16), nullable=True)
-    homeworld = Column(String(250), ForeignKey('planet.name'))
+    homeworld = Column(String(250), ForeignKey('planet.url'))
     planet = relationship(Planet)
+    url = Column(String(250), nullable=False)
 
 class Vehicle(Base):
     __tablename__ = 'vehicle'
